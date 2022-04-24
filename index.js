@@ -16,11 +16,6 @@ const myDirname = dirname(__filename);
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(myDirname, '../client/build')));
 
-// define the first route
-app.get("/", async (req, res) => {
-  res.send("Home")
-})
-
 // receive tweet in post request
 app.post("/tweetOracle", jsonParser, async (req, res) => {
 
