@@ -14,7 +14,7 @@ let jsonParser = bodyParser.json()
 const __filename = fileURLToPath(import.meta.url);
 const myDirname = dirname(__filename);
 // Have Node serve the files for our built React app
-app.use(express.static(path.resolve(myDirname, '../client/build')));
+app.use(express.static(path.resolve(myDirname, 'client/build')));
 
 // receive tweet in post request
 app.post("/tweetOracle", jsonParser, async (req, res) => {
@@ -35,7 +35,7 @@ app.get("/api", (req, res) => {
 app.get('*', (req, res) => {
   const __filename = fileURLToPath(import.meta.url);
   const myDirname = dirname(__filename);
-  res.sendFile(path.resolve(myDirname, '../client/build', 'index.html'));
+  res.sendFile(path.resolve(myDirname, 'client/build', 'index.html'));
 });
   
 // start the server listening for requests
