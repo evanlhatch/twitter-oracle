@@ -1,0 +1,22 @@
+{
+  "name": "heroku-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@thirdweb-dev/sdk": "^2.0.15",
+    "body-parser": "^1.19.2",
+    "ethers": "^5.6.1",
+    "express": "^4.17.3"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}
