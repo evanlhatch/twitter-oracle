@@ -3,6 +3,9 @@ import bodyParser from "body-parser"
 import path from "path";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import abi from './utils/FluxPriceFeed.json';
+import { ethers } from "ethers";
+import { Wallet, providers } from "ethers";
 
 // create express app
 const app = express();
