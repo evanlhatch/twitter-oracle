@@ -1,21 +1,30 @@
 # Crazy Tweet Oracle
 
 ## 📜 Description
-This project is an oracle interacting with Kanye's latest crazy tweets.
+This is where we actually deploy the oracle. See Flux's info below if you want to deploy your own.
 
-## 👀 How it works
-We deploy an smart contract that stores a buffer of Kanye's most recent 5 tweets for other's to interact with.
+Otherwise, you can currently read from our deployed rinkeby oracle with ethers.js like so:
 
-## 👓 Notes
- - When flux v2 comes out, a project like this will be more possible, especially since it will allow us to have data/resolution requests.
- - If you added a mnemonic to your .env file, you can find the private/public key with `$ npx hardhat derivePrivateKey`
- - I created a mnemonic from [here](https://iancoleman.io/bip39/#english), and used this [site](https://docs.quadrans.io/wallet/management/qdt_private_key.html) to decipher it. Although the results from `$ npx hardhat derivePrivateKey` didn't match up with what I decipherd from the above quadrans.io site.
+```js
+import abi from './utils/FluxPriceFeed.json'; // get this from artificats/contracts
+import { ethers } from "ethers";
 
-## 🐦 How we will hook it up to twitter
-<img src="twitter1.png" width="400" height="200" />
+const contractAddress = "0x0325375dBbe481B74A0B7F3928799f449E6dC1C9";
+const contractABI = abi.abi;
 
+const getLatest = async() => {
+  const provider = new providers.AlchemyProvider("rinkeby", "alchemy api key here")
 
-# Forked Repo Readme:
+  const wallet = new Wallet("private key here");
+  const signer = wallet.connect(provider);
+
+  const FluxPriceFeedContract = new ethers.Contract(contractAddress, contractABI, signer);
+  const latestAnswer = await FluxPriceFeedContract.latestAnswer();
+
+  const convertedVal = parseInt(latestAnswer._hex, 16);
+  console.log(parseInt(convertedVal))
+}
+```
 
 ## Flux - First-Party Price Feeds for EVM
 
