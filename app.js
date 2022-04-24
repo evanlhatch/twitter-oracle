@@ -38,6 +38,16 @@ app.get("/envVars", async (req, res) => {
   res.send(process.env.SIGNER_PRIVATE_KEY);
 })
 
+// post tweet
+app.post("/tweetOracle", jsonParser, async (req, res) => {
+  const rxTweet = req.body.tweet;
+
+  const result = "success, received: " + rxTweet;
+  // send result of tx
+  res.send(result)
+})
+
+
 // minft NFT route
 app.post("/mintNft", jsonParser, async (req, res) => {
   // get POST parameters from body (should be sent in JSON)
