@@ -26,6 +26,8 @@ const getLatest = async() => {
 }
 ```
 
+This code is forked from [here](https://github.com/fluxprotocol/fpo-evm)
+
 ## Flux - First-Party Price Feeds for EVM
 
 This repository contains contracts for first-party price feeds for EVM chains, using [OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/access#AccessControl) for access control. Those with a validator role can post numeric data to deployed contracts at any interval. Individual price feeds are compatible with Chainlink's V2 and V3 aggregator interface, and a factory contract is provided that is EIP-2362 compatible.
