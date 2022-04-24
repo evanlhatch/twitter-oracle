@@ -10,7 +10,10 @@ import { Wallet, providers } from "ethers";
 // create express app
 const app = express();
 
-let latestTweet = "initial";
+const contractAddress = "0x0325375dBbe481B74A0B7F3928799f449E6dC1C9";
+const contractABI = abi.abi;
+
+let latestTweet = "Haven't received a tweet yet!";
 
 // create application/json parser
 let jsonParser = bodyParser.json()
