@@ -8,7 +8,7 @@ function App() {
   const [data, setData] = React.useState(null);
 
   React.useEffect(() => {
-    fetch("/api")
+    fetch("/latestTweet")
       .then((res) => res.json())
       .then((data) => setData(data.message));
   }, []);
@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data}</p>
+        <p>Latest: {!data ? "Loading..." : data}</p>
       </header>
     </div>
   );

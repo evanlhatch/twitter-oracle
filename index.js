@@ -8,6 +8,8 @@ import { dirname } from 'path';
 // create express app
 const app = express();
 
+let latestTweet = "initial";
+
 // create application/json parser
 let jsonParser = bodyParser.json()
 
@@ -22,7 +24,9 @@ app.post("/tweetOracle", jsonParser, async (req, res) => {
   // read received tweet from post
   const rxTweet = req.body.tweet;
 
-    // send tweet received
+  latestTweet = rxTweet;
+
+  // send tweet received
   const result = "success, received: " + rxTweet;
   res.send(result)
 })
@@ -30,6 +34,11 @@ app.post("/tweetOracle", jsonParser, async (req, res) => {
 app.get("/api", (req, res) => {
     res.json({ message: "Hello from server!" });
 });
+
+app.get("/latestTweet", (req, res) => {
+  res.json({ message: latestTweet });
+});
+
 
 // All other GET requests not handled before will return our React app
 app.get('*', (req, res) => {
