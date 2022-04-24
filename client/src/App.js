@@ -42,7 +42,7 @@ function App() {
       <header className="App-header">
         <h1>🐦 Welcome to the ETH Twitter Oracle </h1>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>🔮 ETH Latest Price: {!latestPrice ? "Loading..." : latestPrice}</p>
+        <p>🔮 ETH Latest Price: ${!latestPrice ? "Loading..." : latestPrice}</p>
         <p>Latest Tweet: {!data ? "Loading..." : data}</p>
         <a href="https://github.com/Manifest-Git/twitter-oracle">Find out more</a>
 
