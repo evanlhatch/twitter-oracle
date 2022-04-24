@@ -45,7 +45,6 @@ function App() {
         <p>🔮 ETH Latest Price: ${!latestPrice ? "Loading..." : latestPrice}</p>
         <p>Latest Tweet: {!data ? "Loading..." : data}</p>
         <a href="https://github.com/Manifest-Git/twitter-oracle">Find out more</a>
-
       </header>
     </div>
   );
