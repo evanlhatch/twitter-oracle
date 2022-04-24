@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser"
 import { Wallet, providers } from "ethers";
-import path from path;
+import path from "path";
 
 // create express app
 const app = express();
